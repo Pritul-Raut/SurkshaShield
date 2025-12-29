@@ -18,8 +18,8 @@ const MONGO_URI = process.env.MONGO_URI;
 // allow these specific domains
 const allowedOrigins = [
   "http://localhost:5173", // Keep this for local testing
-  "https://your-frontend-domain.vercel.app", // Add your Vercel Frontend URL here
-  "pritul.tech"
+  "https://surksha-shield-frontend.vercel.app", // Add your Vercel Frontend URL here
+  "https://surkshashield.pritul.tech"
 ];
 
 app.use(
