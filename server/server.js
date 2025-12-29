@@ -80,10 +80,23 @@ app.use(async (req, res, next) => {
 //mongo connect End for serverless computing
 
 //testing route 
+
 app.get("/", (req, res) => {
+  // Check the actual Mongoose connection status
+  // 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
+  const dbStatus = mongoose.connection.readyState;
+
+  const statusMessages = {
+    0: "Disconnected",
+    1: "Connected",
+    2: "Connecting",
+    3: "Disconnecting",
+  };
+
   res.json({
-    success: true,
-    message: "Server is active and database is ready!"
+    server: "Running",
+    database: statusMessages[dbStatus] || "Unknown",
+    code: dbStatus, // Useful for debugging (1 is good!)
   });
 });
 
