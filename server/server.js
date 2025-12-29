@@ -55,7 +55,7 @@ app.use(express.json());
 //databse connection -> serverless computing
 // Database connection for Vercel (Serverless)
 let isConnected = false; // Track connection status
-
+let lastError = null; //tells error of mongo connection
 const connectDB = async () => {
   if (isConnected) {
     // If already connected, use existing connection
@@ -66,8 +66,10 @@ const connectDB = async () => {
     await mongoose.connect(MONGO_URI);
     isConnected = true;
     console.log("mongodb is connected");
+    lastError = null;
   } catch (e) {
     console.log(e);
+    lastError = e.message;
   }
 };
 
@@ -97,6 +99,7 @@ app.get("/", (req, res) => {
     server: "Running",
     database: statusMessages[dbStatus] || "Unknown",
     code: dbStatus, // Useful for debugging (1 is good!)
+    lastError: lastError
   });
 });
 
