@@ -51,7 +51,12 @@ function AuthPage() {
     <div className="flex flex-col min-h-screen">
       <header className="px-4 lg:px-6 h-14 flex items-center border-b">
         <Link to={"/"} className="flex items-center justify-center">
-          <GraduationCap className="h-8 w-8 mr-4" />
+          {/* <GraduationCap className="h-8 w-8 mr-4" /> */}
+          <img
+            src="/logo.png"
+            alt="SurkshaShield Logo"
+            className="h-12 w-12 mr-4 object-contain"
+          />
           <span className="font-extrabold text-xl">SurkshaShield</span>
         </Link>
       </header>
