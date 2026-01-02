@@ -164,3 +164,36 @@ export async function resetCourseProgressService(userId, courseId) {
 
   return data;
 }
+
+
+
+
+
+
+// --- Article / Community Services ---
+
+export async function createArticleService(formData) {
+  const { data } = await axiosInstance.post("/articles/create", formData);
+  return data;
+}
+
+export async function fetchArticlesService(queryStr) {
+  // queryStr looks like ?search=scam&category=Banking
+  const { data } = await axiosInstance.get(`/articles/get${queryStr}`);
+  return data;
+}
+
+export async function toggleWithMeService(articleId, userId) {
+  const { data } = await axiosInstance.post(`/articles/with-me/${articleId}`, { userId });
+  return data;
+}
+
+export async function updateArticleService(id, formData) {
+  const { data } = await axiosInstance.put(`/articles/update/${id}`, formData);
+  return data;
+}
+
+export async function reportArticleService(articleId, userId, reason) {
+  const { data } = await axiosInstance.post(`/articles/report/${articleId}`, { userId, reason });
+  return data;
+}

@@ -13,6 +13,9 @@ import StudentViewCourseDetailsPage from "./pages/student/course-details";
 import PaypalPaymentReturnPage from "./pages/student/payment-return";
 import StudentCoursesPage from "./pages/student/student-courses";
 import StudentViewCourseProgressPage from "./pages/student/course-progress";
+// Import the new Article Page
+import ArticlePage from "./pages/article/article";
+import ComingSoonPage from "./pages/coming-soon";
 
 function App() {
   const { auth } = useContext(AuthContext);
@@ -59,6 +62,13 @@ function App() {
           />
         }
       />
+      {/* Public Community Articles Route - Uses Navbar but No Login Required */}
+      <Route element={<StudentViewCommonLayout />}>
+        <Route path="/community-articles" element={<ArticlePage />} />
+        <Route path="/coming-soon" element={<ComingSoonPage />} />
+      </Route>
+
+
       <Route
         path="/"
         element={
@@ -69,6 +79,8 @@ function App() {
           />
         }
       >
+
+
         <Route path="" element={<StudentHomePage />} />
         <Route path="home" element={<StudentHomePage />} />
         <Route path="courses" element={<StudentViewCoursesPage />} />
