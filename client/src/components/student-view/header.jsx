@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { useContext } from "react";
 import { AuthContext } from "@/context/auth-context";
-
+// Import your logo here
+import ShieldLogo from "@/assets/logo.png";
 function StudentViewCommonHeader() {
   const navigate = useNavigate();
   const { resetCredentials } = useContext(AuthContext);
@@ -17,7 +18,12 @@ function StudentViewCommonHeader() {
     <header className="flex items-center justify-between p-4 border-b relative">
       <div className="flex items-center space-x-4">
         <Link to="/home" className="flex items-center hover:text-black">
-          <GraduationCap className="h-8 w-8 mr-4 " />
+          {/* <GraduationCap className="h-8 w-8 mr-4 " /> */}
+          <img
+            src={ShieldLogo}
+            alt="SurkshaShield Logo"
+            className="h-10 w-10 mr-4 object-contain"
+          />
           <span className="font-extrabold md:text-xl text-[14px]">
             SurkshaShield
           </span>
@@ -37,9 +43,9 @@ function StudentViewCommonHeader() {
           <Button
             variant="ghost"
             onClick={() => {
-              location.pathname.includes("/courses")
+              location.pathname.includes("/community-articles")
                 ? null
-                : navigate("/courses");
+                : navigate("/community-articles");
             }}
             className="text-[14px] md:text-[16px] font-medium"
           >
@@ -48,9 +54,9 @@ function StudentViewCommonHeader() {
           <Button
             variant="ghost"
             onClick={() => {
-              location.pathname.includes("/courses")
+              location.pathname.includes("/coming-soon")
                 ? null
-                : navigate("/courses");
+                : navigate("/coming-soon");
             }}
             className="text-[14px] md:text-[16px] font-medium"
           >
@@ -59,9 +65,9 @@ function StudentViewCommonHeader() {
           <Button
             variant="ghost"
             onClick={() => {
-              location.pathname.includes("/courses")
+              location.pathname.includes("/coming-soon")
                 ? null
-                : navigate("/courses");
+                : navigate("/coming-soon");
             }}
             className="text-[14px] md:text-[16px] font-medium"
           >
